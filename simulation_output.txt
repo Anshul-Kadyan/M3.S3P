@@ -1,0 +1,49 @@
+SIMULATION: Expected Output for OpenCL Programs
+==============================================
+
+1. VECTOR OPERATIONS (vector_ops.exe) - Original Program
+--------------------------------------------------------
+Input Vector (size=8):
+45 23 67 12 89 34 56 78
+----------------------------
+
+After Square Magnitude Kernel:
+2025 529 4489 144 7921 1156 3136 6084
+----------------------------
+
+OpenCL Device: GPU (or CPU if GPU not available)
+Kernel executed successfully on 8 work-items
+
+
+2. VECTOR ADDITION COMPARISON (vector_add.exe)
+----------------------------------------------
+Vector Addition Performance Comparison
+Vector Size: 1000000
+========================================
+
+OpenCL Execution Time: 1250 microseconds
+Multi-threaded Execution Time: 3420 microseconds
+OpenCL Speedup: 2.74x
+Results Match: Yes
+
+Sample Results (first 10 elements):
+V1: 45 23 67 12 89 34 56 78 91 25
+V2: 33 67 12 45 23 78 34 56 67 89
+Result: 78 90 79 57 112 112 90 134 158 114
+
+
+3. COMPILATION REQUIREMENTS
+---------------------------
+To run these programs, you need:
+- OpenCL SDK installed
+- C++ compiler (g++, Visual Studio, or MinGW)
+- OpenCL-compatible device
+
+Installation Commands:
+- Install MinGW-w64 or Visual Studio
+- Install Intel OpenCL SDK or vendor-specific OpenCL drivers
+- Add compiler to system PATH
+
+Compilation Commands:
+g++ -std=c++11 vector_ops.cpp -lOpenCL -o vector_ops.exe
+g++ -std=c++11 vector_add.cpp -lOpenCL -o vector_add.exe
